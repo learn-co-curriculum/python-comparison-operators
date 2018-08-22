@@ -1,32 +1,186 @@
-# Object Orientation
 
-## Overview
+# Comparison Operators
 
-We'll introduce the concept of Object Oriented Programming (OOP)
+## Introduction
+In this lesson, we will be looking at operators in Python. Operators are, generally, used to compare two elements. They can be used to check equality, inequality, truthiness and falsiness, and value. They are a hugely important tool in programming that can be used to filter lists of elements, validate data, and assign and reassign values appropriately. Operators have a return value that can be a boolean, `True` or `False`, as well as an element being used for comparison. We will use operators frequently in our code, so, it is important to have a solid understanding of them. Let's get started!
 
-## Object-Oriented Programming (OOP)
+## Objectives
+* What are comparison operators
+* How are comparison operators used
+* What other kinds of operators are there
 
-*An object-oriented approach to application development makes programs more intuitive to design, faster to develop, more amenable to modification, and easier to understand.*  
-—[*Object-Oriented Programming with Objective-C*][apple_oop_guide_intro], Apple Inc.
+## What Are Comparison Operators?
 
-[apple_oop_guide_intro]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/OOP_ObjC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40005149-CH1-SW2
+Comparison operators (or Relational operators) take two elements and compare their values and then return a value that is either True or False. In Python, comparison operators are:
 
-It's natural to wonder, "how can a string of ones and zeroes be referred to as an 'object'?" The use of the word "object" is an abstraction of thought. An "object" in code has no more physical form than does a word in any human language. Sure, words have physical representations: speaking a word causes air to vibrate in a sound wave, ink on a page can be shaped into symbols that represent the word, a meaning can be pointed at or mimed out; but none of these are the word itself. Human language is a system of abstraction: it communicates the *idea* of a thing, but not the thing itself.
+```python
+== # tests equality between two elements
+!= # tests inequality between two elements
+<, >, <=, >= # each tests the value between two elements
+```
+Perhaps the last line's operators are a little more familiar because we've seen these operators in math classes. But the first two might be bit more confusing, so, let's dive into those first.
 
-![](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)  
-Translation: "This is not a pipe." - [*The Treachery of Images*](https://en.wikipedia.org/wiki/The_Treachery_of_Images), [René Magritte](https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte), 1927  
+The double equals operator (`==`) is testing whether the value of the first element is equal to that of the second element (e.g. `element1 == element2`).
+```python 
+False == True # returns False
+False == False # returns True
+10 == 20 # returns False
+10 == 10 # returns True
+"hi" == "HI" # returns False
+"heLLo" == "heLLo" # returns True
+```
 
-This image of a pipe is no more a pipe than the word "pipe" is a pipe; in the same way, a code object named `pipe` is not a pipe, but only another form of representing a pipe.
+The bang (exclamation point) equals operator (`!=`) is testing whether the value of first element is **NOT** equal to that of the second element (e.g. `element1 != element2`).
 
->As humans, we’re constantly faced with myriad facts and impressions that we must make sense of. To do so, we must abstract underlying structure away from surface details and discover the fundamental relations at work. Abstractions reveal causes and effects, expose patterns and frameworks, and separate what’s important from what’s not. Object orientation provides an abstraction of the data on which you operate; moreover, it provides a concrete grouping between the data and the operations you can perform with the data—in effect giving the data behavior.  
->—[*Object-Oriented Programming with Objective-C*](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/OOP_ObjC/Articles/ooOOP.html#//apple_ref/doc/uid/TP40005149-CH8-SW3), Apple Inc.
+```python 
+True != True # returns False
+True != False # returns True
+10 != 20 # returns True
+10 != 10 # returns False
+"hi" != "HI" # returns True
+"heLLo" != "heLLo" # returns False
+```
 
-A code object representing a water pipe (instead of a smoking pipe) might contain values for `length`, `diameter`, `material`, and `manufacturer`. The bundling of these individual pieces of information together begins to form a larger whole.
 
-Object-Oriented Programming, however, does more than just bundle up individual pieces of data that represent a "thing" — it also bundles customized functions that can be performed *on* that data. These are called **methods**: behaviors that an object performs upon its internal data and even upon other code objects.
 
-An object in code is a thing with all the data and all the logic required to complete a task. Objects are models and metaphors for the problems we solve in code.
+Now onto the third grouping of comaparison operators. The greater than (`>`), less than (`<`), greater than or equal to (`>=`) and less than or equal (`<=`) to operators also only return True or False from an operation. Essentially they are doing the same thing as the operators we see above, but the comparison is slightly different.
 
-Object-oriented programming was born from the trend of making digital lives reflect our real lives. In the 1970's, [Adele Goldberg](https://en.wikipedia.org/wiki/Adele_Goldberg_%28computer_scientist%29) and [Alan Kay](https://en.wikipedia.org/wiki/Alan_Kay) developed an object-oriented language at Xerox PARC called SmallTalk, which was used in the first personal computer.
+```python
+True > True # False
+True >= True # True
+10 <= 10 # True
+7 < 7 # False
+10 < 100 # True
+100 > 101 # False
+```
+We can even compare strings to see which is alphabetically greater or less than. A string is greater than if it comes after another string alphabetically (or if its ascii value is greater). An important note is that capital letters have lower ascii values, which means that they come earlier in the alphabet than lowercase letters. For example the ascii Alphalbet would look something like: `Aa Bb Cc Dd Ee Ff ... Xx Yy Zz` with `A` having the lowest ascii value and `z` having the highest ascii value.
 
-Python comes with a few types of Objects to get us started, things like `int` for Integer, `str` for String, `list` for List, etc. We call these base types of Objects "Primitives." But what if we wanted to create a new type in our programming universe, a new kind of object for our code? That's what the `class` keyword and object orientation allows us to do.
+```python
+"APPLE" < "apple" # True
+"aaron" > "alexa" # False
+"Terrance" > "Teresa" # True
+"SAME" == "SAME" # True
+```
+So, when comparing strings to other strings, it is important to be cognizant of whether the comparison should be case sensitive or not.
+
+## How Are Comparison Operators Used?
+We've already seen some examples of this above. Essentially, we use comparison operators to *compare* two things. So, the most basic structure is two elements with an operator in between. The return value will be `True` or `False`. The best way to get comfortable with comparison operators is through practice, so, let's take a look at some examples:
+
+
+```python
+print('1.', True != True) # False
+print('2.', False == True) # False
+print('3.', 10 == "10") # False
+print('4.', "hi" != "HI") # True
+print('5.', type(0) == int) # True
+print('6.', ["hi"] == ["hi"]) # True
+print('7.', "Thomas" != "Samantha") # True
+```
+
+Above we can see examples using both the `!=` and `==` operators to compare elements of several datatypes and values. Remember that these operators are testing for the value of each element.
+
+Next, we will look at examples using the greater than (>), less than (<), greater than or equal to (>=) and less than or equal (<=) to operators.
+
+
+```python
+print('1.', True > True) # False
+print('2.', True >= True) # True
+print('3.', 10 <= 10) # True
+print('4.', 7 < 7) # False
+print('5.', 10 < 100) # True
+print('6.', 100 > 101) # False
+print('7.', "APPLE" < "apple") # True 
+print('8.', "aaron" > "alexa") # False
+print('9.', "Terrance" > "Teresa") # True
+```
+
+## Other Types of Operators
+### Logical Operators
+
+The next group of operators are logical operators. They compare truthy/falsy values. The operators are:
+```python
+and 
+# Compares two elements. If both elements are truthy, the second element is returned
+# If there is a falsy value, the first falsy value is returned
+
+or 
+# Compares two elements. The first truthy element is returned. 
+# If both elements are falsy, the second element is returned
+
+not 
+# returns a boolean value that is the opposite of the truthy/falsy value of the element
+```
+Let's see these in action:
+
+*try to reason what the values will be before running the code - **write** your answers in a comment next to the print statement*
+
+
+```python
+print("1.", 2 and 0) #
+print("2.", False and 2) #
+print("3.", True and 2) #
+print("4.", 2 and 3) #
+print("5.", 2 or []) #
+print("6.", 0 or []) #
+print("7.", not False) #
+print("8.", not True) #
+print("9.", not []) #
+print("10.", not 0) #
+print("11.", not 100) #
+```
+
+### Identity Operators
+
+The next type of operators are identity operators, `is` and `is not`. They check to see if one element **is** or **is not** the other element. This is similar to `!=` and `==`. However there is one key difference. The `!=` and `==` check to see if the value of each element is the same, however, the `is` and `is not` operators check to see if the elements are the same element. 
+
+Let's check it out:
+
+*again, try to find the correct return value for each example and write the answer in a comment next to the print statement*
+
+
+```python
+x = {'name': "example"}
+b = x
+c = {'name': "example"}
+print("1.", {} is {}) #
+print("1A.", {} == {}) #
+print("2.", [] is []) #
+print("3.", "Hi" is "Hi") #
+print("4.", ["same"] is ["same"]) #
+print("4A.", ["same"] == ["same"]) #
+print("5.", 9 is not 10) #
+print("6.", x is b) #
+print("7.", b is c) #
+print("7A.", b == c) #
+print("8.", x is not c) #
+```
+
+As we can see, the `is` and `is not` operators are checking to see if the objects are exactly the same object in memory. However, the `==` and `!=` operators are simply checking to see if the value of each element is the same. This will become clearer as we learn more about how python stores data. 
+
+All objects are stored in a specific place in memory, we can think of this as an address on the computer, so, all objects will have their own unique address. A **variable**, like `x`, is a **reference** to that object and not the object itself. So, when we use the `is` or `is not` operator, we are checking to see if the address of the object is the same as another object. When we use the `==` or `!=` operators, we are checking to see if they are basically equal in value, irrespective of whether they are the same or two different objects.
+
+### BONUS: Ternary Operator 
+
+The next operator is the Ternary. It is a bit more of a complicated operator, but it can be very useful when you would like to decide which value to assign to a variable. Ternaries are good for one-line conditions, but anything more complex makes ternary operators quite difficult to read. Let's check it out:
+
+
+```python
+my_condition = True
+value = 10 if my_condition else 1000
+print(value)
+```
+
+
+```python
+# let's say we are receiving two variables with different 
+# values and we want to assign the higher value to a new variable
+x = 12
+y = 20
+new_variable = x if x > y else y
+# here we are saying, take the value of x if it is greater than the value of y. else take the value of y
+# since x > y evaluates to false, the ternary returns the value of the variable after the else statement or y
+print(new_variable)
+```
+
+# Summary
+In this lesson, we looked at operators in Python. Operators are fundamental tools in many languages that provide a succicnt way to compare multiple elements. Comparison operators return boolean values and compare the value between two elements. Logical operators compare the truthiness and falsiness of two elements and either return one of the elements or a boolean value. Logical operators compare two elements for their equality, that is whether they are the same object or not, and they return a boolean value. Lastly, ternary operators are used to assign a value to a variable. They use an if statement and another operator to compare two values and return one of two values, which is used to assign the value of a variable.
